@@ -11,8 +11,7 @@ namespace bank
 		double balance;
 
 		public double Balance { get; protected set; }
-
-		protected BankAccount(Owner owner)  : base(owner)
+		protected BankAccount(Owner owner) : base(owner)
 		{
 		}
 
@@ -20,7 +19,11 @@ namespace bank
 		{
 			balance += amount;
 		}
-
 		public abstract bool Withdraw(double amount);
+
+		public BankCard NewCard(string cardNumber)
+		{
+			return new BankCard(Owner, Balance, cardNumber);
+		}
 	}
 }
